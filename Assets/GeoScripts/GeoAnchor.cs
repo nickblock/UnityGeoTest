@@ -39,6 +39,8 @@ namespace ScapeKitUnity
 
 		void Awake() {
 
+			ScapeLogging.Log(message: "OGeoAnchor::Awake " + this.gameObject.name);
+
 			// this.gameObject.SetActive(false);
 
 			GeoWorldRoot.GetInstance().RegisterGeoEvent(this.OriginEvent);
