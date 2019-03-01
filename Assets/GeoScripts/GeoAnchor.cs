@@ -19,7 +19,10 @@ namespace ScapeKitUnity
 
 			ScenePos = WorldPos - SceneOrigin;
 
-			ScapeLogging.Log(message: "OriginEvent() WorldCoords = " + GeoConversions.CoordinatesToString(WorldCoordinates));
+			string name = this.gameObject.name;
+
+			ScapeLogging.Log(message: "OriginEvent() "+ name +" ScenePos = " + ScenePos.ToString());
+			ScapeLogging.Log(message: "OriginEvent() "+ name +" WorldCoords = " + GeoConversions.CoordinatesToString(WorldCoordinates));
 
 			if(ScenePos.magnitude < MaxDistance) {
 
@@ -28,7 +31,7 @@ namespace ScapeKitUnity
 				this.gameObject.SetActive(true);
 			}
 			else {
-				ScapeLogging.Log(message: "OriginEvent() beyond max distance");
+				ScapeLogging.Log(message: "OriginEvent() "+ name +" beyond max distance (" + ScenePos.magnitude + ")");
 				
 				this.gameObject.SetActive(false);
 			}

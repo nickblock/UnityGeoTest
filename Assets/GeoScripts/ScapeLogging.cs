@@ -12,6 +12,8 @@ namespace ScapeKitUnity
             ScapeLoggingBridge._log(tag, message);
 #elif UNITY_ANDROID && !UNITY_EDITOR
             ScapeLoggingBridge._log(tag, message);
+#else
+            Debug.Log(tag + " " + message);
 #endif
         }
 

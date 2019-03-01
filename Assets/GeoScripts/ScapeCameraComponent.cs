@@ -28,6 +28,9 @@ namespace ScapeKitUnity
         public float RotationSpeed = 1.0f;
         private float YRotation = 0.0f;
 
+        public float StartLongitude = 0.0f;
+        public float StartLatitude = 0.0f;
+
         private void initScape()
         {
             // ScapeClient.Instance.WithResApiKey().StartClient();
@@ -57,6 +60,11 @@ namespace ScapeKitUnity
         		mCamera = Camera.main;
         	}
         	ScapeDirectionFix = Quaternion.AngleAxis(0.0f, Vector3.up);
+
+            GeoWorldRoot.GetInstance().SetWorldOrigin(new Coordinates() {
+                longitude = StartLongitude,
+                latitude = StartLatitude
+            });
         }
 
     	void Update()
@@ -102,19 +110,19 @@ namespace ScapeKitUnity
 #endif
     	}
 
-    	void SynchronizeARCamera(ScapeMeasurements scapeMeasurements) 
-    	{
-    		Coordinates LocalCoordinates = GeoConversions.CoordinatesFromVector(new Vector2(PositionAtScapeMeasurements.x, PositionAtScapeMeasurements.z));
-    		Coordinates OriginCoordinates = new Coordinates() {
-    			longitude = scapeMeasurements.coordinates.longitude - LocalCoordinates.longitude,
-    			latitude = scapeMeasurements.coordinates.latitude - LocalCoordinates.latitude
-    		};
+        void SynchronizeARCamera(ScapeMeasurements scapeMeasurements) 
+        {
+            Coordinates LocalCoordinates = GeoConversions.CoordinatesFromVector(new Vector2(PositionAtScapeMeasurements.x, PositionAtScapeMeasurements.z));
+            Coordinates OriginCoordinates = new Coordinates() {
+                longitude = scapeMeasurements.coordinates.longitude - LocalCoordinates.longitude,
+                latitude = scapeMeasurements.coordinates.latitude - LocalCoordinates.latitude
+            };
 
-    		ScapeLogging.Log(message: "SynchronizeARCamera() scapecoords = " + GeoConversions.CoordinatesToString(scapeMeasurements.coordinates));
-    		ScapeLogging.Log(message: "SynchronizeARCamera() localcoords = " + GeoConversions.CoordinatesToString(LocalCoordinates));
-    		ScapeLogging.Log(message: "SynchronizeARCamera() origincoords = " + GeoConversions.CoordinatesToString(OriginCoordinates));
+            ScapeLogging.Log(message: "SynchronizeARCamera() scapecoords = " + GeoConversions.CoordinatesToString(scapeMeasurements.coordinates));
+            ScapeLogging.Log(message: "SynchronizeARCamera() localcoords = " + GeoConversions.CoordinatesToString(LocalCoordinates));
+            ScapeLogging.Log(message: "SynchronizeARCamera() origincoords = " + GeoConversions.CoordinatesToString(OriginCoordinates));
 
-    		GeoWorldRoot.GetInstance().SetWorldOrigin(OriginCoordinates);
+            GeoWorldRoot.GetInstance().SetWorldOrigin(OriginCoordinates);
 
     		Quaternion worldEulerRotation = new Quaternion((float)scapeMeasurements.orientation.x, 
     										(float)scapeMeasurements.orientation.y, 
