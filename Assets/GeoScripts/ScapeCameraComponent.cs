@@ -87,6 +87,9 @@ namespace ScapeKitUnity
             float dirSpeed = Input.GetAxis ("Vertical") * MotionSpeed;
             Vector3 dir = rot * new Vector3(0,0,dirSpeed);
 
+            float flyUp = Input.GetAxis("FlyUp") * MotionSpeed;
+            dir += new Vector3(0, flyUp, 0);
+
             mCamera.transform.localPosition += dir;
             mCamera.transform.localRotation = rot;
         }
