@@ -1462,6 +1462,7 @@ ModelImporter:
     102912: Yuki
     102914: Z_Hotel_Shoreditch
     102916: Zetland_House
+    102918: default
     400000: 100,705,151
     400002: 100,705,155
     400004: 100,705,158
@@ -2921,6 +2922,7 @@ ModelImporter:
     402912: Yuki
     402914: Z_Hotel_Shoreditch
     402916: Zetland_House
+    402918: default
     2100000: default
     2100002: building
     2300000: 100,705,151
@@ -4381,6 +4383,7 @@ ModelImporter:
     2302910: Yuki
     2302912: Z_Hotel_Shoreditch
     2302914: Zetland_House
+    2302916: default
     3300000: 100,705,151
     3300002: 100,705,155
     3300004: 100,705,158
@@ -5839,6 +5842,7 @@ ModelImporter:
     3302910: Yuki
     3302912: Z_Hotel_Shoreditch
     3302914: Zetland_House
+    3302916: default
     4300000: 100,705,151
     4300002: 100,705,155
     4300004: 100,705,158
@@ -7297,6 +7301,7 @@ ModelImporter:
     4302910: Yuki
     4302912: Z_Hotel_Shoreditch
     4302914: Zetland_House
+    4302916: default
   externalObjects: {}
   materials:
     importMaterials: 1
