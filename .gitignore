@@ -3,6 +3,8 @@
 # =============== #
 Temp/
 Library/
+Assets/SampleScenes*
+Assets/Standard Assets*
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
