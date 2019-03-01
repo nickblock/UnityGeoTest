@@ -21,8 +21,8 @@ namespace ScapeKitUnity
 
 			string name = this.gameObject.name;
 
-			ScapeLogging.Log(message: "OriginEvent() "+ name +" ScenePos = " + ScenePos.ToString());
-			ScapeLogging.Log(message: "OriginEvent() "+ name +" WorldCoords = " + GeoConversions.CoordinatesToString(WorldCoordinates));
+			ScapeLogging.Log(message: "OriginEvent() " + name + " ScenePos = " + ScenePos.ToString());
+			ScapeLogging.Log(message: "OriginEvent() " + name + " WorldCoords = " + GeoConversions.CoordinatesToString(WorldCoordinates));
 
 			if(ScenePos.magnitude < MaxDistance) {
 
@@ -49,7 +49,7 @@ namespace ScapeKitUnity
 
 		void Update() {
 			if(needsUpdate) {
-				this.gameObject.transform.localPosition = new Vector3(ScenePos.x, 0.0f, ScenePos.y);	
+				this.gameObject.transform.position = new Vector3(ScenePos.x, 0.0f, ScenePos.y);	
 
 				ScapeLogging.Log(message: "OriginEvent() set position = " + this.gameObject.transform.localPosition);	
 						
